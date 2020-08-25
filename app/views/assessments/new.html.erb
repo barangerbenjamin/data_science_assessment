@@ -1,0 +1,37 @@
+<div class="container mt-3">
+    <div class="row">
+        <div class="col-md-6 offset-md-3">
+            <%= simple_form_for @assessment do |f| %>
+                <%= f.input :candidate_full_name, placeholder: 'John Smith', label: "Full name"  %>
+                <%= f.input :ats_link, placeholder: 'https://kitt.lewagon.com/applications/24109', label: "ATS Link"  %>
+                <%= f.input :q1_correct, collection: ["Wrong", "Almost", "Correct"], label: "Q1 - In your own words, how could you describe what is lw_team", class: 'sel2' %>
+                <%= f.input :q1_note, label: "Addidtional note", as: :text, placeholder: "Anything to add concerning this question?" %>
+                <%= f.input :q2_correct, collection: ["Wrong", "Almost", "Correct"], label: "Q2 - How would you check the datatype of lw_team? And of one of the element inside lw_team?", class: 'sel2' %>
+                <%= f.input :q2_note, label: "Addidtional note", as: :text, placeholder: "Anything to add concerning this question?" %>
+                <%= f.input :q3_correct, collection: ["Wrong", "Almost", "Correct"], label: "Q3 - How many elements is there inside lw_team?", class: 'sel2' %>
+                <%= f.input :q3_note, label: "Addidtional note", as: :text, placeholder: "Anything to add concerning this question?" %>
+                <%= f.input :q4_correct, collection: ["Wrong", "Almost", "Correct"], label: "Q4 - Output ben's age", class: 'sel2' %>
+                <%= f.input :q4_note, label: "Addidtional note", as: :text, placeholder: "Anything to add concerning this question?" %>
+                <%= f.input :q5_correct, collection: ["Wrong", "Almost", "Correct"], label: "Q5 - Add 'video games' in alex's list of hobbies", class: 'sel2' %>
+                <%= f.input :q5_note, label: "Addidtional note", as: :text, placeholder: "Anything to add concerning this question?" %>
+                <%= f.input :q6_correct, collection: ["Wrong", "Almost", "Correct"], label: "Q6 - We forgot to add Rebecca to lw_team, let's add her now", class: 'sel2' %>
+                <%= f.input :q6_note, label: "Addidtional note", as: :text, placeholder: "Anything to add concerning this question?" %>
+                <%= f.input :q7_correct, collection: ["Wrong", "Almost", "Correct"], label: "Q7 - lucien is not that much into sport anymore, lets remove it from his hobbies", class: 'sel2' %>
+                <%= f.input :q7_note, label: "Addidtional note", as: :text, placeholder: "Anything to add concerning this question?" %>
+                <%= f.input :q8_correct, collection: ["Wrong", "Almost", "Correct"], label: "Q8 - Loop over lw_team and output the name of everyone upcased", class: 'sel2' %>
+                <%= f.input :q8_note, label: "Addidtional note", as: :text, placeholder: "Anything to add concerning this question?" %>
+                <%= f.input :q9_correct, collection: ["Wrong", "Almost", "Correct"], label: "Q9 - Create a new instance of Car representing a Ferrari and store it in a variable called ferrari", class: 'sel2' %>
+                <%= f.input :q9_note, label: "Addidtional note", as: :text, placeholder: "Anything to add concerning this question?" %>
+                <%= f.input :q10_correct, collection: ["Wrong", "Almost", "Correct"], label: "Q10 - Output the value of engine_started for ferrari", class: 'sel2' %>
+                <%= f.input :q10_note, label: "Addidtional note", as: :text, placeholder: "Anything to add concerning this question?" %>
+                <%= f.input :q11_correct, collection: ["Wrong", "Almost", "Correct"], label: "Q11 - Start the ferrari's engine", class: 'sel2' %>
+                <%= f.input :q11_note, label: "Addidtional note", as: :text, placeholder: "Anything to add concerning this question?" %>
+                <%= f.input :q12_correct, collection: ["Wrong", "Almost", "Correct"], label: "Q12 - Check that it is started", class: 'sel2' %>
+                <%= f.input :q12_note, label: "Addidtional note", as: :text, placeholder: "Anything to add concerning this question?" %>
+                <%= f.input :q13_correct, collection: ["Wrong", "Almost", "Correct"], label: "BONUS - How could you add a way to change the color of a car inside the class Car?", class: 'sel2' %>
+                <%= f.input :q13_note, label: "Addidtional note", as: :text, placeholder: "Anything to add concerning this question?" %>
+                <%= f.button :button, "Create assessment", class: "btn-primary mb-3" %>
+            <% end %>
+        </div>
+    </div>
+</div>
