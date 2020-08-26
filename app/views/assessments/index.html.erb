@@ -28,7 +28,7 @@
                             <% dtype_score = dtype.count('Correct') + (dtype.count('Almost') / 2.0) %>
                             <% oop = [assessment.q9_correct, assessment.q10_correct, assessment.q11_correct, assessment.q12_correct, assessment.q13_correct] %>
                             <% oop_score = oop.count('Correct') + (oop.count('Almost') / 2.0) %>
-                            <div class="d-flex align-items-center justify-content-between">
+                            <div class="d-flex align-items-center justify-content-between text-center pt-1 pb-1 pl-3 pr-3">
                                 <div>
                                     <p>Theory</p>
                                     <p><strong><span class="<%= theory_score < 2.5 ? theory_score < 1.5 ? "text-danger" : "text-warning" : "text-success" %>"><%= theory_score %>/3</span></strong></p>
@@ -42,8 +42,10 @@
                                     <p><strong><span class="<%= oop_score < 4.5 ? oop_score < 3 ? "text-danger" : "text-warning" : "text-success" %>"><%= oop_score %>/5</span></strong></p>
                                 </div>
                             </div>
-                            <p class="card-text"><%= answers.join %></p>
-                            <a href="<%= assessment.ats_link %>%" target="_blank" class="btn btn-primary">ATS Application</a>
+                            <div class="d-flex align-items-center justify-content-between text-center">
+                                <a href="<%= assessment.ats_link %>" target="_blank" class="btn btn-primary">ATS Application</a>
+                                <a href="<%= assessment_path(assessment) %>" class="btn btn-secondary">Details</a>
+                            </div>
                         </div>
                     </div>
                 
