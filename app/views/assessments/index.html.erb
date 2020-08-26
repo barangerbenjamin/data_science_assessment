@@ -7,7 +7,7 @@
             <% @assessments.each do |assessment| %>
                 
                     <div class="card mt-2">
-                        <div class="card-header <%= assessment.score < 9 ? assessment.score < 5 ? "bg-danger" : "bg-warning" : "bg-success" %>">
+                        <div class="card-header text-white <%= assessment.score < 9 ? assessment.score < 5 ? "bg-danger" : "bg-warning" : "bg-success" %>">
                             <strong><%= assessment.candidate_full_name %></strong>
                         </div>
                         <div class="card-body">
