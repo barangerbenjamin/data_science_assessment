@@ -11,17 +11,8 @@
                             <strong><%= assessment.candidate_full_name %></strong>
                         </div>
                         <div class="card-body">
-                            <h5 class="card-title">Overall score of <strong><span class="<%= assessment.score < 9 ? assessment.score < 5 ? "text-danger" : "text-warning" : "text-success" %>"><%= assessment.score %></span>/<strong>12</strong> </h5>
+                            <h5 class="card-title">Overall score of <strong><span class="<%= assessment.score < 9 ? assessment.score < 5 ? "text-danger" : "text-warning" : "text-success" %>"><%= assessment.score %></span>/<strong>13</strong> </h5>
                             <% answers = [assessment.q1_correct, assessment.q2_correct, assessment.q3_correct, assessment.q4_correct,assessment.q5_correct, assessment.q6_correct, assessment.q7_correct, assessment.q8_correct, assessment.q9_correct, assessment.q10_correct, assessment.q11_correct, assessment.q12_correct, assessment.q13_correct] %>
-                            <% answers.map! do |a| %>
-                                <% if a == "Wrong" %>
-                                    <% '😭' %>
-                                <% elsif a == "Almost" %>
-                                    <% '😑' %>
-                                <% else %>
-                                    <% '😍' %>
-                                <% end %>
-                            <% end %>
                             <% theory = [assessment.q1_correct, assessment.q2_correct, assessment.q3_correct] %>
                             <% theory_score = theory.count('Correct') + (theory.count('Almost') / 2.0) %>
                             <% dtype = [assessment.q4_correct,assessment.q5_correct, assessment.q6_correct, assessment.q7_correct, assessment.q8_correct] %>
@@ -35,7 +26,7 @@
                                 </div>
                                 <div>
                                     <p>DataType</p>
-                                    <p><strong><span class="<%= dtype_score < 3 ? dtype_score < 2 ? "text-danger" : "text-warning" : "text-success" %>"><%= dtype_score %>/4</span></strong></p>
+                                    <p><strong><span class="<%= dtype_score < 4.5 ? dtype_score < 3 ? "text-danger" : "text-warning" : "text-success" %>"><%= dtype_score %>/5</span></strong></p>
                                 </div>
                                 <div>
                                     <p>OOP</p>
