@@ -7,7 +7,7 @@
             <% @assessments.each do |assessment| %>
                 
                     <div class="card mt-2">
-                        <div class="card-header">
+                        <div class="card-header <%= assessment.score < 9 ? assessment.score < 5 ? "bg-danger" : "bg-warning" : "bg-success" %>">
                             <strong><%= assessment.candidate_full_name %></strong>
                         </div>
                         <div class="card-body">
@@ -22,6 +22,26 @@
                                     <% '😍' %>
                                 <% end %>
                             <% end %>
+                            <% theory = [assessment.q1_correct, assessment.q2_correct, assessment.q3_correct] %>
+                            <% theory_score = theory.count('Correct') + (theory.count('Almost') / 2.0) %>
+                            <% dtype = [assessment.q4_correct,assessment.q5_correct, assessment.q6_correct, assessment.q7_correct, assessment.q8_correct] %>
+                            <% dtype_score = dtype.count('Correct') + (dtype.count('Almost') / 2.0) %>
+                            <% oop = [assessment.q9_correct, assessment.q10_correct, assessment.q11_correct, assessment.q12_correct, assessment.q13_correct] %>
+                            <% oop_score = oop.count('Correct') + (oop.count('Almost') / 2.0) %>
+                            <div class="d-flex align-items-center justify-content-between">
+                                <div>
+                                    <p>Theory</p>
+                                    <p><strong><span class="<%= theory_score < 2.5 ? theory_score < 1.5 ? "text-danger" : "text-warning" : "text-success" %>"><%= theory_score %>/3</span></strong></p>
+                                </div>
+                                <div>
+                                    <p>DataType</p>
+                                    <p><strong><span class="<%= dtype_score < 3 ? dtype_score < 2 ? "text-danger" : "text-warning" : "text-success" %>"><%= dtype_score %>/4</span></strong></p>
+                                </div>
+                                <div>
+                                    <p>OOP</p>
+                                    <p><strong><span class="<%= oop_score < 4.5 ? oop_score < 3 ? "text-danger" : "text-warning" : "text-success" %>"><%= oop_score %>/5</span></strong></p>
+                                </div>
+                            </div>
                             <p class="card-text"><%= answers.join %></p>
                             <a href="<%= assessment.ats_link %>%" target="_blank" class="btn btn-primary">ATS Application</a>
                         </div>
