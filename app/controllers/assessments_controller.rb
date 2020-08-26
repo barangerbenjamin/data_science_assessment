@@ -17,7 +17,7 @@ class AssessmentsController < ApplicationController
         @assessment.user = current_user
         if @assessment.valid?
             answers = [@assessment.q1_correct, @assessment.q2_correct, @assessment.q3_correct, @assessment.q4_correct,@assessment.q5_correct, @assessment.q6_correct, @assessment.q7_correct, @assessment.q8_correct, @assessment.q9_correct, @assessment.q10_correct, @assessment.q11_correct, @assessment.q12_correct, @assessment.q13_correct]
-            score = answers.count('Correct') + (answers.count('Almost') / 2)
+            score = answers.count('Correct') + (answers.count('Almost') / 2.0)
             @assessment.score = score
             @assessment.save
             redirect_to root_path
