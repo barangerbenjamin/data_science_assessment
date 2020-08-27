@@ -15,86 +15,92 @@
                     </div>
                 </div>
                 <div class="card-body">
-        
                     <div class="card mb-3">
                         <div class="card-header text-white <%= theory_score < 2.5 ? theory_score < 1.5 ? "bg-danger" : "bg-warning" : "bg-success" %>">
                             <strong>Theory <%= theory_score %>/3</strong>
                         </div>
-                        <div class="card-body">
-                            <% if !@assessment.q1_note.empty? %>
-                                <p><strong>Q1 - In your own words, how would you describe what is lw_team</strong></p>
-                                <p class="card-text"><%= @assessment.q1_note %></p>
-                            <% end %>
-                            <% if !@assessment.q2_note.empty? %>
-                                <p><strong>Q2- How would you check the datatype of lw_team? And of one of the element inside lw_team?</strong></p>
-                                <p class="card-text"><%= @assessment.q2_note %></p>
-                            <% end %>
-                            <% if !@assessment.q3_note.empty? %>
-                                <p><strong>Q3- How many elements is there inside lw_team?</strong></p>
-                                <p class="card-text"><%= @assessment.q3_note %></p>
-                            <% end %>
-                        </div>
+                        <% if !@assessment.q1_note.empty? || !@assessment.q2_note.empty? || !@assessment.q3_note.empty? %>
+                            <div class="card-body">
+                                <% if !@assessment.q1_note.empty? %>
+                                    <p><strong>Q1 - In your own words, how would you describe what is lw_team</strong></p>
+                                    <p class="card-text"><%= @assessment.q1_note %></p>
+                                <% end %>
+                                <% if !@assessment.q2_note.empty? %>
+                                    <p><strong>Q2- How would you check the datatype of lw_team? And of one of the element inside lw_team?</strong></p>
+                                    <p class="card-text"><%= @assessment.q2_note %></p>
+                                <% end %>
+                                <% if !@assessment.q3_note.empty? %>
+                                    <p><strong>Q3- How many elements is there inside lw_team?</strong></p>
+                                    <p class="card-text"><%= @assessment.q3_note %></p>
+                                <% end %>
+                            </div>
+                        <% else %>
+                            <strong><p class="text-center mt-3">No notes on Theory</p></strong>
+                        <% end %>
                     </div>
-                    
                     <div class="card mb-3">
                         <div class="card-header text-white <%= dtype_score <= 3.5 ? dtype_score < 3 ? "bg-danger" : "bg-warning" : "bg-success" %>">
                             <strong>DataType <%= dtype_score %>/5</strong>
                         </div>
-                        <div class="card-body">
-                            <% if !@assessment.q4_note.empty? %>
-                                <p><strong>Q4- Output ben's age</strong></p>
-                                <p class="card-text"><%= @assessment.q4_note %></p>
-                            <% end %>
-                            <% if !@assessment.q5_note.empty? %>
-                                <p><strong>Q5- Add 'video games' in alex's list of hobbies</strong></p>
-                                <p class="card-text"><%= @assessment.q5_note %></p>
-                            <% end %>
-                            <% if !@assessment.q6_note.empty? %>
-                                <p><strong>Q6- We forgot to add Rebecca to lw_team, let's add her now</strong></p>
-                                <p class="card-text"><%= @assessment.q6_note %></p>
-                            <% end %>
-                            <% if !@assessment.q7_note.empty? %>
-                                <p><strong>Q7- lucien is not that much into sport anymore, lets remove it from his hobbies</strong></p>
-                                <p class="card-text"><%= @assessment.q7_note %></p>
-                            <% end %>
-                            <% if !@assessment.q8_note.empty? %>
-                                <p><strong>Q8- Loop over lw_team and output the name of everyone upcased</strong></p>
-                                <p class="card-text"><%= @assessment.q8_note %></p>
-                            <% end %>
-                        </div>
+                        <% if !@assessment.q4_note.empty? || !@assessment.q5_note.empty? || !@assessment.q6_note.empty? || !@assessment.q7_note.empty? || !@assessment.q8_note.empty? %>
+                            <div class="card-body">
+                                <% if !@assessment.q4_note.empty? %>
+                                    <p><strong>Q4- Output ben's age</strong></p>
+                                    <p class="card-text"><%= @assessment.q4_note %></p>
+                                <% end %>
+                                <% if !@assessment.q5_note.empty? %>
+                                    <p><strong>Q5- Add 'video games' in alex's list of hobbies</strong></p>
+                                    <p class="card-text"><%= @assessment.q5_note %></p>
+                                <% end %>
+                                <% if !@assessment.q6_note.empty? %>
+                                    <p><strong>Q6- We forgot to add Rebecca to lw_team, let's add her now</strong></p>
+                                    <p class="card-text"><%= @assessment.q6_note %></p>
+                                <% end %>
+                                <% if !@assessment.q7_note.empty? %>
+                                    <p><strong>Q7- lucien is not that much into sport anymore, lets remove it from his hobbies</strong></p>
+                                    <p class="card-text"><%= @assessment.q7_note %></p>
+                                <% end %>
+                                <% if !@assessment.q8_note.empty? %>
+                                    <p><strong>Q8- Loop over lw_team and output the name of everyone upcased</strong></p>
+                                    <p class="card-text"><%= @assessment.q8_note %></p>
+                                <% end %>
+                            </div>
+                        <% else %>
+                            <strong><p class="text-center mt-3">No notes on DataType</p></strong>
+                        <% end %>
                     </div>
-
                     <div class="card mb-3">
                         <div class="card-header text-white <%= oop_score <= 3.5 ? oop_score < 3 ? "bg-danger" : "bg-warning" : "bg-success" %>">
                             <strong>OOP <%= oop_score %>/5</strong>
                         </div>
-                        <div class="card-body">
-                            <% if !@assessment.q9_note.empty? %>
-                                <p><strong>Q9- Create a new instance of Car representing a Ferrari and store it in a variable called ferrari</strong></p>
-                                <p class="card-text"><%= @assessment.q9_note %></p>
-                            <% end %>
-                            <% if !@assessment.q10_note.empty? %>
-                                <p><strong>Q10- Output the value of engine_started for ferrari</strong></p>
-                                <p class="card-text"><%= @assessment.q10_note %></p>
-                            <% end %>
-                            <% if !@assessment.q11_note.empty? %>
-                                <p><strong>Q11- Start the ferrari's engine</strong></p>
-                                <p class="card-text"><%= @assessment.q11_note %></p>
-                            <% end %>
-                            <% if !@assessment.q12_note.empty? %>
-                                <p><strong>Q12- Check that it is started</strong></p>
-                                <p class="card-text"><%= @assessment.q12_note %></p>
-                            <% end %>
-                            <% if !@assessment.q13_note.empty? %>
-                                <p><strong>BONUS- How could you add a way to change the color of a car inside the class Car?</strong></p>
-                                <p class="card-text"><%= @assessment.q13_note %></p>
-                            <% end %>
-                        </div>
+                        <% if !@assessment.q9_note.empty? || !@assessment.q10_note.empty? || !@assessment.q11_note.empty? || !@assessment.q12_note.empty? || !@assessment.q13_note.empty? %>
+                            <div class="card-body">
+                                <% if !@assessment.q9_note.empty? %>
+                                    <p><strong>Q9- Create a new instance of Car representing a Ferrari and store it in a variable called ferrari</strong></p>
+                                    <p class="card-text"><%= @assessment.q9_note %></p>
+                                <% end %>
+                                <% if !@assessment.q10_note.empty? %>
+                                    <p><strong>Q10- Output the value of engine_started for ferrari</strong></p>
+                                    <p class="card-text"><%= @assessment.q10_note %></p>
+                                <% end %>
+                                <% if !@assessment.q11_note.empty? %>
+                                    <p><strong>Q11- Start the ferrari's engine</strong></p>
+                                    <p class="card-text"><%= @assessment.q11_note %></p>
+                                <% end %>
+                                <% if !@assessment.q12_note.empty? %>
+                                    <p><strong>Q12- Check that it is started</strong></p>
+                                    <p class="card-text"><%= @assessment.q12_note %></p>
+                                <% end %>
+                                <% if !@assessment.q13_note.empty? %>
+                                    <p><strong>BONUS- How could you add a way to change the color of a car inside the class Car?</strong></p>
+                                    <p class="card-text"><%= @assessment.q13_note %></p>
+                                <% end %>
+                            </div>
+                        <% else %>
+                            <strong><p class="text-center mt-3">No notes on OOP</p></strong>
+                        <% end %>
                     </div>
-
-
-
-
+                    
 
                     <div class="d-flex align-items-center justify-content-between text-center">
                         <a href="<%= @assessment.ats_link %>" target="_blank" class="btn btn-primary">ATS Application</a>
